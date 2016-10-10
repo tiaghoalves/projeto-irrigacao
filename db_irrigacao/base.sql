@@ -47,3 +47,4 @@ INSERT INTO planta(idPlanta, nome, apelido, imagem, descricao, idUsuario) VALUES
 
 
 
+
