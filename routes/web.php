@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
-});
-
 Route::get('/', function () {
     return view('index');
 });
@@ -23,9 +19,20 @@ Route::get('/home', function () {
     return view('index');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/cadastro', function () {
+    return view('cadastro');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
 Route::get('/planta', 'PlantaController@lista');
+
+
+
 
