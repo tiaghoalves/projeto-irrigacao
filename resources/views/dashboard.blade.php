@@ -10,7 +10,6 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="description" content="Insira aqui a descrição da página.">
     <link href="http://assets.locaweb.com.br/locastyle/3.9.0/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
     <link rel="icon" sizes="192x192" href="/locawebstyle/assets/images/ico-boilerplate.png">
     <link rel="apple-touch-icon" href="/locawebstyle/assets/images/ico-boilerplate.png">
@@ -55,7 +54,7 @@
     <h1 class="ls-brand-name">
       <a href="home" class="ls-ico-earth">
         <small>Sistema de Controle de Irrigação</small>
-        Dashboard Administrador
+        Home
       </a>
     </h1>
 
@@ -64,21 +63,21 @@
 
 <aside class="ls-sidebar">
   <div class="ls-sidebar-inner">
-      <a href="/locawebstyle/documentacao/exemplos//pre-painel"  class="ls-go-prev"><span class="ls-text">Voltar à lista de serviços</span></a>
+      <a href="#"  class="ls-go-prev"><span class="ls-text">Voltar à lista de serviços</span></a>
 
       <nav class="ls-menu">
         <ul>
-           <li><a href="/locawebstyle/documentacao/exemplos/painel1/home" class="ls-ico-dashboard" title="Dashboard">Dashboard</a></li>
-           <li><a href="/locawebstyle/documentacao/exemplos/painel1/clients" class="ls-ico-users" title="Clientes">Clientes</a></li>
+           <li><a href="#" class="ls-ico-dashboard" title="Dashboard">Dashboard</a></li>
+           <li><a href="#" class="ls-ico-users" title="Clientes">Clientes</a></li>
            <li><a href="planta" class="ls-ico-stats" title="Plantas">Plantas</a></li>
            <li>
             <a href="#" class="ls-ico-cog" title="Configurações">Configurações</a>
             <ul>
-              <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-domain">Domínios da Revenda</a></li>
-              <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-email">E-mail de Remetente</a></li>
-              <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-aspect">Aparência</a></li>
-              <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-answer">Atendimento</a></li>
-              <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-api">Chave de acesso para API</a></li>
+              <li><a href="#">Domínios da Revenda</a></li>
+              <li><a href="#">E-mail de Remetente</a></li>
+              <li><a href="#">Aparência</a></li>
+              <li><a href="#">Atendimento</a></li>
+              <li><a href="#">Chave de acesso para API</a></li>
             </ul>
           </li>
         </ul>
@@ -89,7 +88,7 @@
 
     <main class="ls-main ">
       <div class="container-fluid">
-        <h1 class="ls-title-intro ls-ico-home">Página inicial</h1>
+        <h1 class="ls-title-intro ls-ico-home">Página inicial - Bem vindo</h1>
 
         <p>Este é nosso boilerplate com a estrutura inicial de um projeto. Você pode <a href="http://locaweb.github.io/locawebstyle/documentacao/exemplos/">ver exemplos completos neste link</a>.</p>
         <p>Confira nossa <a href="http://locaweb.github.io/locawebstyle/documentacao/componentes/">documentação com os componentes</a> que você usar aqui.</p>
@@ -151,18 +150,19 @@
     <!-- We recommended use jQuery 1.10 or up -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://assets.locaweb.com.br/locastyle/3.9.0/javascripts/locastyle.js" type="text/javascript"></script>
-    <script>
+    <script type="text/javascript">
       $.ajax({
           url: "https://www.datos.gov.co/resource/t5s4-7bmp.json",
           type: "GET",
           data: {
             "$limit" : 5000,
             "$$app_token" : "ZM6HwRMjr0atLYsf9eYkqODV5"
+          },
+          success: function(data) {
+            //alert("Retrieved " + data.length + " records from the dataset!");
+            console.log(data);   
           }
-      }).done(data) {
-        alert("Retrieved " + data.length + " records from the dataset!");
-        console.log(data);
-      };
+      });
     </script>
   </body>
 </html>

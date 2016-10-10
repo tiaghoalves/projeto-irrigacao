@@ -15,11 +15,13 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Home</a>
       <ul class="right hide-on-med-and-down">
+        <li><a href="dashboard">Dashboard</a></li>
         <li><a href="login">Login</a></li>
         <li><a href="cadastro">Cadastro</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
+        <li><a href="dashboard">Dashboard</a></li>
         <li><a href="login">Login</a></li>
         <li><a href="cadastro">Cadastro</a></li>
       </ul>
