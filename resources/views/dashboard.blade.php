@@ -49,7 +49,7 @@
 
   <span class="ls-show-sidebar ls-ico-menu"></span>
 
-  <a href="{{ url('/home') }}"  class="ls-go-next"><span class="ls-text">Voltar à lista de serviços</span></a>
+  <a href="home"  class="ls-go-next"><span class="ls-text">Voltar à lista de serviços</span></a>
 
   <!-- Nome do produto/marca com sidebar -->
     <h1 class="ls-brand-name">
@@ -62,8 +62,7 @@
   <!-- Nome do produto/marca sem sidebar quando for o pre-painel  -->
 </div>
 
-  <aside class="ls-sidebar">
-
+<aside class="ls-sidebar">
   <div class="ls-sidebar-inner">
       <a href="/locawebstyle/documentacao/exemplos//pre-painel"  class="ls-go-prev"><span class="ls-text">Voltar à lista de serviços</span></a>
 
@@ -71,7 +70,7 @@
         <ul>
            <li><a href="/locawebstyle/documentacao/exemplos/painel1/home" class="ls-ico-dashboard" title="Dashboard">Dashboard</a></li>
            <li><a href="/locawebstyle/documentacao/exemplos/painel1/clients" class="ls-ico-users" title="Clientes">Clientes</a></li>
-           <li><a href="/locawebstyle/documentacao/exemplos/painel1/stats" class="ls-ico-stats" title="Relatórios da revenda">Relatórios da revenda</a></li>
+           <li><a href="planta" class="ls-ico-stats" title="Plantas">Plantas</a></li>
            <li>
             <a href="#" class="ls-ico-cog" title="Configurações">Configurações</a>
             <ul>

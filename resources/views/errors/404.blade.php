@@ -36,7 +36,7 @@
   </div>
 
   <!-- Nome do produto/marca -->
-  <h1 class="ls-brand-name"><a class="ls-ico-earth" href="../home">Irrigation Control</a></h1>
+  <h1 class="ls-brand-name"><a class="ls-ico-earth" href="home">Irrigation Control</a></h1>
   </div>
 
 <main class="ls-main">
@@ -49,9 +49,8 @@
         <p><strong>Você pode:</strong></p>
         <ol>
           <li>Verificar se digitou corretamente o endereço desejado.</li>
-          <li>Retornar à <a href="#" class="ls-color-theme">página inicial.</a></li>
+          <li>Retornar à <a href="home" class="ls-color-theme">página inicial.</a></li>
         </ol>
-        <p>Se o problema persistir, entre em contato através de um dos <a href="#">canais de atendimento</a>.</p>
       </div>
 
     </div>

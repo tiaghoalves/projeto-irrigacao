@@ -33,9 +33,11 @@
           <a class="ls-label-text-prefix ls-toggle-pass ls-ico-eye" data-toggle-class="ls-ico-eye, ls-ico-eye-blocked" data-target="#password_field" href="#"></a>
         </div>
       </label>
-
+      <p class="ls-txt-center ls-login-signup"><a href="home">Voltar a página inicial</a></p>
+      
       <button type="submit" class="ls-btn-primary ls-btn-block ls-btn-lg">Entrar</button>
-      <p class="ls-txt-center ls-login-signup">Não possui um usuário cadastrado? <a href="#">Cadastre-se agora</a></p>
+      <p class="ls-txt-center ls-login-signup">Não possui um usuário cadastrado? 
+      <a href="{{ url('cadastro') }}">Cadastre-se agora</a></p>
 
     </fieldset>
   </form>
