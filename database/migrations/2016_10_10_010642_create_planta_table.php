@@ -18,7 +18,7 @@ class CreatePlantaTable extends Migration
             $table->string('nome');
             $table->string('apelido');
             $table->text('imagem');
-            $table->text('description');
+            $table->text('descricao');
             $table->timestamps();
         });
     }
