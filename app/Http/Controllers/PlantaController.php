@@ -27,10 +27,11 @@ class PlantaController extends Controller{
 		return view('visualizar')->with('p', $resposta[0]);
 	}
 
-	public function cadastrar($nome, $apelido, $imagem, $descricao) {
+/*	public function cadastrar() {
+		$form = Request::except('id');
 
 		DB::insert('INSERT INTO planta(idPlanta, nome, apelido, imagem, descricao) 
-										VALUES (null, $nome, $apelido, $imagem, $descricao');
+							   VALUES (null, $nome, $apelido, $imagem, $descricao');
 		
 		return view('listagem');
 	}
@@ -48,5 +49,5 @@ class PlantaController extends Controller{
 
 		return view('listagem');
 	}
-
+*/
 }

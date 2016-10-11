@@ -1,7 +1,3 @@
-<!--
-	Código fonte: http://opensource.locaweb.com.br/locawebstyle/documentacao/introducao/boilerplate/
-	Todos direitos reservados by Locaweb Style Boilerplate.
- -->
 <!DOCTYPE html>
 <html class="ls-theme-green">
   <head>
