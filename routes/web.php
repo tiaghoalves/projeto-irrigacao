@@ -33,6 +33,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/planta', 'PlantaController@lista');
 
+Route::get('/planta/visualizar', 'PlantaController@visualizar');
 
 
 
