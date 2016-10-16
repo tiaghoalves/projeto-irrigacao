@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,11 +19,11 @@ Route::get('/home', function () {
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('auth.login');
 });
 
 Route::get('/cadastro', function () {
-    return view('cadastro');
+    return view('auth.cadastro');
 });
 
 Route::get('/dashboard', function () {
@@ -33,7 +32,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/planta', 'PlantaController@lista');
 
-Route::get('/planta/visualizar', 'PlantaController@visualizar');
+Route::get(	'/planta/visualizar/{id}', 'PlantaController@visualizar')->where('id', '[0-9]+');
 
+Route::get('/planta/novo', 'PlantaController@novo');
 
+Route::get('/planta/exclui/{id}', 'PlantaController@exclui');
 
+Route::get('/planta/adiciona', 'PlantaController@adiciona');

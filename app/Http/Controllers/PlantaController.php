@@ -12,42 +12,54 @@ class PlantaController extends Controller{
 
 		$plantas = DB::select('select * from planta');
 		
-		return View::make('listagem')->withPlantas($plantas);
+		return View::make('planta.listagem')->withPlantas($plantas);
 	}
 
-	public function visualizar() {
-		$id = Request::input('id', 0);
+	public function visualizar($id) {
 
 		$resposta = DB::select('select * from planta where idPlanta = ? ', [$id]);
 
 		if (empty($resposta)) {
-			return view('errors/404');
+			return view('errors.404');
 		}
 
-		return view('visualizar')->with('p', $resposta[0]);
+		return view('planta.visualizar')->with('p', $resposta[0]);
 	}
 
-/*	public function cadastrar() {
-		$form = Request::except('id');
+	public function novo() {
 
-		DB::insert('INSERT INTO planta(idPlanta, nome, apelido, imagem, descricao) 
-							   VALUES (null, $nome, $apelido, $imagem, $descricao');
+		return view('planta.formulario');
+	}
+
+	public function adiciona() {
+		$nome = Request::input('nome');
+		$apelido = Request::input('apelido');
+		$descricao = Request::input('descricao');
+		$image = Request::input('imagem');
 		
-		return view('listagem');
+		//DB::insert('insert into planta(nome, apelido, imagem, descricao) values (?,?,?,?)', array($nome, $apelido, $image, $descricao));
+		DB::table('planta')->insert(
+			['nome' => $nome,
+			 'apelido' => $valor,
+			 'imagem' => $image,
+			 'descricao' => $descricao
+			]
+		);
+
+		return view('adicionado')->with('nome', $nome);
 	}
 
-	public function editar($id) {
-
+/*	
+	public function editar() {
 		DB::update('update from planta where idPlanta = '.$id);
 
 		return view('editar');
 	}
-
-	public function delete($id) {
-
-		$planta = DB::delete('delete from planta where idPlanta = ?', [$id]);
-
-		return view('listagem');
-	}
 */
+
+	public function exclui($id) {
+		$planta = DB::delete('delete from planta where idPlanta = ?', [$id]);
+		
+		return view('excluido');
+	}
 }

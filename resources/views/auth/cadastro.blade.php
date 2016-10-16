@@ -15,7 +15,7 @@
 
     <title>Cadastro</title>
   </head>
-  <body>
+<body>
 <div class="ls-login-parent">
   <div class="ls-login-inner">
     <div class="ls-login-container">
@@ -89,8 +89,8 @@
     </div>
   </div>
 </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="http://assets.locaweb.com.br/locastyle/3.9.0/javascripts/locastyle.js" type="text/javascript"></script>
-  </body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://assets.locaweb.com.br/locastyle/3.9.0/javascripts/locastyle.js" type="text/javascript"></script>
+</body>
 </html>

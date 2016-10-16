@@ -34,7 +34,7 @@
   </div>
 
   <!-- Nome do produto/marca -->
-  <h1 class="ls-brand-name"><a class="ls-ico-earth" href="/home">Irrigation Control</a></h1>
+  <h1 class="ls-brand-name"><a class="ls-ico-earth" href="/home">Sistema de Controle de Irrigação</a></h1>
   </div>
 
 <main class="ls-main">
