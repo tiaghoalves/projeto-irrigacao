@@ -1,14 +1,4 @@
 <?php
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
 
 Route::get('/', function () {
     return view('dashboard');
@@ -30,12 +20,25 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/planta', 'PlantaController@lista');
+Route::get('/planta', [
+			'as'=> 'listagem', 
+			'uses' => 'PlantaController@lista'
+		]);
 
-Route::get(	'/planta/visualizar/{id}', 'PlantaController@visualizar')->where('id', '[0-9]+');
+Route::get('/planta/visualizar/{id}', 'PlantaController@visualizar')->where('id', '[0-9]+');
 
-Route::get('/planta/novo', 'PlantaController@novo');
+Route::put('/planta/editar/{id}', 'PlantaController@editar')->where('id', '[0-9]+');
 
-Route::get('/planta/exclui/{id}', 'PlantaController@exclui');
+Route::get('/planta/novo', [
+			'as'=> 'novo', 
+			'uses' => 'PlantaController@novo'
+		]);
 
-Route::get('/planta/adiciona', 'PlantaController@adiciona');
+Route::post('/planta/adiciona', 'PlantaController@adiciona');
+
+Route::get('/planta/exclui/{id}', 'PlantaController@exclui')->where('id', '[0-9]+');
+
+Route::get('/planta/json', 'PlantaController@listaJson');
+
+
+

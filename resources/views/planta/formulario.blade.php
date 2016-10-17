@@ -1,11 +1,10 @@
 @extends('layout.principal')
 
 @section('conteudo')
-
 <h1 class="ls-title-intro ls-ico-users">Cadastrar planta</h1>
-
-<form action="/planta/adiciona" class="ls-form">
+<form action="/planta/adiciona" method="post" class="ls-form">
   <legend class="ls-title-2">Identificação</legend>
+  <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
   <div class="row">
     <label class="ls-label col-md-6">
       <span class="ls-label-text">Nome</span>
@@ -34,5 +33,5 @@
   <button type="submit" class="ls-btn-primary">Salvar</button>
   <a href="/planta" class="ls-btn">Cancelar</a>
 </form>
-  <hr>
+<hr>
 @stop

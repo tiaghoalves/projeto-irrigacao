@@ -59,7 +59,7 @@
       <nav class="ls-menu">
         <ul>
           <li><a href="/dashboard" class="ls-ico-dashboard" title="Dashboard">Dashboard</a></li>
-          <li><a href="/planta" class="ls-ico-stats" title="Plantas">Plantas</a></li>
+          <li><a href="{{action('PlantaController@lista')}}" class="ls-ico-stats" title="Plantas">Plantas</a></li>
           <li>
             <a href="#" class="ls-ico-cog" title="Configurações">Configurações</a>
             <ul>

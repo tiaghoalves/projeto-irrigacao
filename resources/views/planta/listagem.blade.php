@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <h1 class="ls-title-intro ls-ico-list">Listagem de Plantas</h1>
-    <a href="/planta/novo" class="ls-btn-primary ls-ico-plus">Cadastrar Planta</a>
+    <a href="{{ action('PlantaController@novo') }}" class="ls-btn-primary ls-ico-plus">Cadastrar Planta</a>
     <hr>
     @if(empty($plantas))
       <div class="ls-alert-danger">
@@ -22,7 +22,7 @@
             </header>
             <div class="ls-list-content ">
               <div class="col-xs-12 col-md-6">
-                <span class="ls-list-label">Status</span>
+                <span class="ls-list-label"> Status</span>
                 <strong>Online</strong>
               </div>
               <div class="col-sm-2 ls-text-right">
@@ -36,5 +36,10 @@
         <hr>
       @endforeach
     @endif
-
+  @if(old('nome'))
+    <hr>
+    <div class="ls-alert-success">
+      <p>A planta <strong>{{ old('nome') }}</strong> foi adicionado com sucesso!
+    </div>
+  @endif
 @stop
