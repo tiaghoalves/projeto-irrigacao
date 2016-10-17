@@ -33,5 +33,10 @@ class PlantaTableSeeder extends Seeder
 				  values (?,?,?,?)',
 				  array('Margarida', 'Daisy', 'https://static.significados.com.br/foto/margarida-0d.jpg' , 'A margarida, flor cujo nome científico é Chrysanthemum leucanthemum, é uma flor que também é conhecida como malmequer, crisântemo, bem-me-quer, bonina, margarita, margarita-maior, malmequer-maior, malmequer-bravo, e olho-de-boi.'));
 
+		DB::insert('insert into planta
+				  (nome, apelido, imagem, descricao)
+				  values (?,?,?,?)',
+				  array('Rosa', 'Eva Venenosa', 'https://upload.wikimedia.org/wikipedia/commons/2/28/Red_rose.jpg' , 'A rosa (do latim rosa) é uma das flores mais populares no mundo. Vem sendo cultivada pelo homem desde a Antiguidade. A primeira rosa cresceu nos jardins asiáticos há 5 000 anos. Na sua forma selvagem, a flor é ainda mais antiga. Celebrada ao longo dos séculos, a rosa, símbolo dos apaixonados, também marcou presença em eventos históricos importantes e decisivos. Fósseis dessas rosas datam de há 35 milhões de anos.'));
+
 	}
 }

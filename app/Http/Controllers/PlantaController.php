@@ -8,6 +8,12 @@ use Request;
 
 class PlantaController extends Controller{
 
+	public function __construct() {
+		$this->middleware('auth-middleware',
+							['only' => ['adiciona', 'exclui']
+						  ]);
+	}
+
 	public function lista() {
 		$plantas = DB::select('select * from planta');
 		

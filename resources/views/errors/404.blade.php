@@ -20,17 +20,30 @@
 
     <!-- Dropdown com detalhes da conta de usuário -->
     <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
-      <a href="#" class="ls-ico-user">
-        João
-      <small>(fmolina)</small>
-      </a>
-      <nav class="ls-dropdown-nav ls-user-menu">
-        <ul>
-          <li><a href="#">Meus dados</a></li>
-          <li><a href="#">Sair</a></li>
-         </ul>
-      </nav>
-    </div>
+      @if(Auth::guest())
+        <a href="#" class="ls-ico-user">
+            <span class="ls-name">Anonymous</span>
+          </a>
+  
+        <nav class="ls-dropdown-nav ls-user-menu">
+          <ul>
+            <li><a href="/register">Cadastro</a></li>
+            <li><a href="/login">Login</a></li>
+          </ul>
+        </nav>
+      @else
+        <a href="#" class="ls-ico-user">
+          <span class="ls-name">{{ Auth::user()->name }}</span>
+        </a>
+  
+          <nav class="ls-dropdown-nav ls-user-menu">
+            <ul>
+              <li><a href="#">Perfil</a></li>
+              <li><a href="#">Sair</a></li>
+            </ul>
+        </nav>
+      @endif
+  </div>
   </div>
 
   <!-- Nome do produto/marca -->

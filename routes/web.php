@@ -1,24 +1,16 @@
 <?php
 
+Auth::routes();
+
+Route::get('/login', 'LoginController@login');
+
+Route::get('/logout', 'LoginController@logout');
+
 Route::get('/', function () {
-    return view('dashboard');
+    return view('home');
 });
 
-Route::get('/home', function () {
-    return view('dashboard');
-});
-
-Route::get('/login', function () {
-    return view('auth.login');
-});
-
-Route::get('/cadastro', function () {
-    return view('auth.cadastro');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/home', 'HomeController@index');
 
 Route::get('/planta', [
 			'as'=> 'listagem', 
@@ -39,6 +31,5 @@ Route::post('/planta/adiciona', 'PlantaController@adiciona');
 Route::get('/planta/exclui/{id}', 'PlantaController@exclui')->where('id', '[0-9]+');
 
 Route::get('/planta/json', 'PlantaController@listaJson');
-
 
 
