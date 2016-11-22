@@ -15,12 +15,18 @@ class CreatePlantaTable extends Migration
     {
         Schema::create('planta', function (Blueprint $table) {
             $table->increments('idPlanta');
+            $table->integer('idUser')->unsigned();
             $table->string('nome');
             $table->string('apelido');
-            $table->text('imagem');
             $table->text('descricao');
+            $table->string('imagem')->default('default.png');
+            $table->boolean('status')->default(true);
+            $table->foreign('idUser')->references('id')
+                                    ->on('users')
+                                    ->onDelete('cascade');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -33,3 +39,4 @@ class CreatePlantaTable extends Migration
         Schema::dropIfExists('planta');
     }
 }
+

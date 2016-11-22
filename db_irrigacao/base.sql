@@ -1,4 +1,4 @@
--- Scripts do Banco Projeto Irrigacao
+-- Scripts do Banco db_irrigacao - Projeto Irrigacao
 use db_irrigacao;
 
 create table usuario(
@@ -50,7 +50,7 @@ INSERT INTO planta(idPlanta, nome, apelido, imagem, descricao) VALUES (null, 'Ro
 
 
 
-delete from planta where idPlanta = 3;
+ -- delete from users where id = 3;
 
 
 

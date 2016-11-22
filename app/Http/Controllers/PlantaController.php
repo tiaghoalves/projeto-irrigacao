@@ -1,88 +1,91 @@
-<?php 
+<?php
+
 namespace projetoIrrigacao\Http\Controllers;
 
-use projetoIrrigacao\App\Planta;
-use DB;
-use View;
-use Request;
+use projetoIrrigacao\Planta;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Auth;
 
-class PlantaController extends Controller{
+class PlantaController extends Controller {
 
 	public function __construct() {
-		$this->middleware('auth-middleware',
-							['only' => ['adiciona', 'exclui']
-						  ]);
+		$this->middleware('auth-middleware', ['only' => ['adiciona', 'exclui', 'editar']]);
 	}
 
 	public function lista() {
-		$plantas = DB::select('select * from planta');
+		$plantas = (Auth::user() != null) ? Planta::all()->where('idUser', Auth::user()->id ) : [];
 		
-		return view('planta.listagem')->withPlantas($plantas);
+		return view('planta.listagem')->with('plantas', $plantas);
 	}
 
-	public function listaJson(){
-		$plantas = DB::select('select * from planta');
+	public function listaJson() {
+		$plantas = Planta::all();
 		return response()->json($plantas);
 	}
 
 	public function visualizar($id) {
-		$resposta = DB::select('select * from planta where idPlanta = ? ', [$id]);
-
-		if (empty($resposta)) {
+		$planta = Planta::find($id);
+		if (empty($planta)) {
 			return view('errors.404');
 		}
 
-		return view('planta.visualizar')->with('p', $resposta[0]);
+		return view('planta.visualizar')->with('p', $planta);
 	}
 
 	public function novo() {
 		return view('planta.formulario');
 	}
 
-	public function adiciona() {
-		$nome = Request::input('nome');
-		$apelido = Request::input('apelido');
-		$descricao = Request::input('descricao');
-		$image = Request::input('imagem');
-		
-		DB::table('planta')->insert(
-			['nome' => $nome,
-			 'apelido' => $apelido,
-			 'imagem' => $image,
-			 'descricao' => $descricao
-			]
-		);
+	public function adiciona(Request $request) {
+		$planta = new Planta($request->except('imagem'));
+		$this->validate($request, [
+            'nome' => 'required'
+        ]);
 
+        if ($request->hasFile('imagem')) {
+        	$file = $request->file('imagem');
+        	$name = $file->getClientOriginalName();
+        	$file->move(public_path().'/img/plantas/', $name);
+        	$planta->imagem = $name;
+        }
+
+		$planta->save();
 		return redirect()
-				->route('listagem')
-				->withInput(Request::only('nome'));
+				->action('PlantaController@lista')
+				->withInput($request->only('nome'));
+	}
+
+	public function editar($id, Request $request) {
+		$planta = Planta::find($id);
+		
+		if ($request->hasFile('imagem')) {
+        	$file = $request->file('imagem');
+        	$name = $file->getClientOriginalName();
+        	$file->move(public_path().'/img/plantas/', $name);
+        	$planta->imagem = $name;
+        }
+		
+		$planta->nome = $request->input('nome');
+		$planta->apelido = $request->input('apelido');
+		$planta->descricao = $request->input('descricao');
+		$planta->status = ($request->input('status') == 'Ativo') ? 1 : 0;
+		$planta->save();
+		return redirect('/planta/visualizar/' . $id);
 	}
 
 	public function exclui($id) {
-		if ($id == null) {
-			return view('errors.404');
-		}
-		
-		DB::table('planta')->where('idPlanta', '=', $id)->delete();
-
-		return redirect()->route('listagem');
+		$planta = Planta::find($id);
+		$planta->delete();
+		return redirect()->action('PlantaController@lista');
 	}
-	
-	public function editar($id) {
-		$nome = Request::input('nome');
-		$apelido = Request::input('apelido');
-		$descricao = Request::input('descricao');
 
-		DB::table('planta')
-            ->where('idPlanta', $id)
-            ->update(
-            	['nome' => $nome,
-            	 'apelido' => $apelido,
-            	 'descricao' => $descricao
-            	]
-            );
-
-		return redirect('/planta/visualizar/'.$id);
-	}
+    public function alterar($id) {
+    	$planta = Planta::find($id);
+    	$planta->status = ($planta->status == 1) ? 0 : 1;
+    	$planta->save();
+    	return redirect()->action('PlantaController@lista'); 
+    }
 
 }
+

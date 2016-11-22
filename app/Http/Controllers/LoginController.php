@@ -6,8 +6,8 @@ use projetoIrrigacao\Http\Requests;
 use Request;
 use Auth;
 
-class LoginController extends Controller
-{
+class LoginController extends Controller {
+    
     public function login() {
     	$credenciais = Request::only('email', 'password');
 		

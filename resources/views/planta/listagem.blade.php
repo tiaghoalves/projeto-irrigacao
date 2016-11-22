@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <h1 class="ls-title-intro ls-ico-list">Listagem de Plantas</h1>
-    <a href="{{ action('PlantaController@novo') }}" class="ls-btn-primary ls-ico-plus">Cadastrar Planta</a>
+    <a href="{{ action('PlantaController@novo') }}" class="ls-btn-primary ls-ico-plus"> Cadastrar Planta</a>
     <hr>
     @if(empty($plantas))
       <div class="ls-alert-danger">
@@ -23,13 +23,13 @@
             <div class="ls-list-content ">
               <div class="col-xs-12 col-md-6">
                 <span class="ls-list-label"> Status</span>
-                <strong>Online</strong>
+                <strong>{{ ($p->status == 1) ?  'Ativo' : 'Inativo' }}</strong>
               </div>
               <div class="col-sm-2 ls-text-right">
                 <a href="/planta/exclui/{{$p->idPlanta}}" class="ls-btn-primary-danger ls-ico-remove"> Excluir</a>
               </div>
               <div class="col-sm-2 ls-text-right">
-                <a href="" class="ls-btn-danger"> Desativar</a>
+                <a href="/planta/alterar/{{$p->idPlanta}}" class="ls-btn"> Alterar status</a>
               </div>
             </div>
         </div>

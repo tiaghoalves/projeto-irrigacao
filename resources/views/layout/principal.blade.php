@@ -13,7 +13,8 @@
   <link rel="apple-touch-icon" href="/locawebstyle/assets/images/ico-boilerplate.png">
     <!-- Scripts -->
   <script>
-      window.Laravel = <?php echo json_encode([
+      window.Laravel = <?php 
+      echo json_encode([
           'csrfToken' => csrf_token(),
       ]); ?>
   </script>
@@ -35,8 +36,8 @@
   <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
       @if(Auth::guest())
         <a href="#" class="ls-ico-user">
-            <span class="ls-name">Anonymous</span>
-          </a>
+          <span class="ls-name">Anonymous</span>
+        </a>
   
         <nav class="ls-dropdown-nav ls-user-menu">
           <ul>
@@ -77,8 +78,8 @@
 
       <nav class="ls-menu">
         <ul>
-          <li><a href="/home" class="ls-ico-dashboard" title="Dashboard">Dashboard</a></li>
-          <li><a href="{{action('PlantaController@lista')}}" class="ls-ico-stats" title="Plantas">Plantas</a></li>
+          <li><a href="/" class="ls-ico-dashboard" title="Dashboard">Dashboard</a></li>
+          <li><a href="{{ action('PlantaController@lista') }}" class="ls-ico-stats" title="Plantas">Plantas</a></li>
           <li>
             <a href="#" class="ls-ico-cog" title="Configurações">Configurações</a>
             <ul>
