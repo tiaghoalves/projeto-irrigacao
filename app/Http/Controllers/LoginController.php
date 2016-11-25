@@ -11,7 +11,7 @@ class LoginController extends Controller {
     public function login() {
     	$credenciais = Request::only('email', 'password');
 		
-		if(Auth::attempt($credenciais)) {
+		if(Auth::attempt($credenciais, true)) {
 			return "Usuário ". Auth::user()->name ." logado com sucesso";
 		}
 

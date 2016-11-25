@@ -7,12 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
-<!-- Styles -->
+  <!-- Styles -->
   <link href="/css/app.css" rel="stylesheet" type="text/css">
   <link rel="icon" sizes="192x192" href="/components/locawebstyle/dist/images/ico-boilerplate.png">
   <link rel="apple-touch-icon" href="/components/locawebstyle/dist/images/ico-boilerplate.png">
-<!-- Scripts -->
+  <!-- Scripts -->
   <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
@@ -80,7 +79,7 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+<!-- Scripts -->
+<script src="/js/app.js"></script>
 </body>
 </html>
