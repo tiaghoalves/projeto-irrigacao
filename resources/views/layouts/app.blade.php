@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="ls-theme-green">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Main Page</title>
+  <meta charset="utf-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+<!-- Styles -->
+  <link href="/css/app.css" rel="stylesheet" type="text/css">
+  <link rel="icon" sizes="192x192" href="/components/locawebstyle/dist/images/ico-boilerplate.png">
+  <link rel="apple-touch-icon" href="/components/locawebstyle/dist/images/ico-boilerplate.png">
+<!-- Scripts -->
+  <script>
+    window.Laravel = <?php echo json_encode([
+        'csrfToken' => csrf_token(),
+    ]); ?>
+  </script>
 </head>
 <body>
     <div id="app">
@@ -36,7 +35,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Sistema de Controle de Irrigação
                     </a>
                 </div>
 

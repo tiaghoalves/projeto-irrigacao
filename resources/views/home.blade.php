@@ -1,4 +1,4 @@
-@extends('layout.principal')
+@extends('layouts.principal')
 
 @section('conteudo')
 <h1 class="ls-title-intro ls-ico-home">Home</h1>

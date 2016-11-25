@@ -3,9 +3,10 @@
 namespace projetoIrrigacao\Http\Controllers;
 
 use projetoIrrigacao\Planta;
+use projetoIrrigacao\Http\Requests\PlantasRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Auth;
+use Validator;
 
 class PlantaController extends Controller {
 
@@ -37,16 +38,13 @@ class PlantaController extends Controller {
 		return view('planta.formulario');
 	}
 
-	public function adiciona(Request $request) {
-		$planta = new Planta($request->except('imagem'));
-		$this->validate($request, [
-            'nome' => 'required'
-        ]);
+	public function adiciona(PlantasRequest $request) {
+		$planta = new Planta($request->except('imagem'));		
 
         if ($request->hasFile('imagem')) {
         	$file = $request->file('imagem');
         	$name = $file->getClientOriginalName();
-        	$file->move(public_path().'/img/plantas/', $name);
+        	$file->move(public_path() . '/img/plantas/', $name);
         	$planta->imagem = $name;
         }
 
@@ -56,13 +54,13 @@ class PlantaController extends Controller {
 				->withInput($request->only('nome'));
 	}
 
-	public function editar($id, Request $request) {
+	public function editar($id, PlantasRequest $request) {
 		$planta = Planta::find($id);
 		
 		if ($request->hasFile('imagem')) {
         	$file = $request->file('imagem');
         	$name = $file->getClientOriginalName();
-        	$file->move(public_path().'/img/plantas/', $name);
+        	$file->move(public_path() . '/img/plantas/', $name);
         	$planta->imagem = $name;
         }
 		

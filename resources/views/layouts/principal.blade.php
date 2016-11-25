@@ -7,14 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
-  <link href="http://assets.locaweb.com.br/locastyle/3.9.0/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
-  <link rel="icon" sizes="192x192" href="/locawebstyle/assets/images/ico-boilerplate.png">
-  <link rel="apple-touch-icon" href="/locawebstyle/assets/images/ico-boilerplate.png">
+  <!-- Styles -->
+  <link href="/components/locawebstyle/dist/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
+  <link rel="icon" sizes="192x192" href="/components/locawebstyle/dist/images/ico-boilerplate.png">
+  <link rel="apple-touch-icon" href="/components/locawebstyle/dist/images/ico-boilerplate.png">
     <!-- Scripts -->
   <script>
-      window.Laravel = <?php 
-      echo json_encode([
+      window.Laravel = <?php echo json_encode([
           'csrfToken' => csrf_token(),
       ]); ?>
   </script>
@@ -102,6 +101,6 @@
 
     <!-- We recommended use jQuery 1.10 or up -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="http://assets.locaweb.com.br/locastyle/3.9.0/javascripts/locastyle.js" type="text/javascript"></script>
+    <script src="/components/locawebstyle/dist/javascripts/locastyle.js"></script>
   </body>
 </html>
