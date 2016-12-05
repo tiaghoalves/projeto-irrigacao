@@ -32,7 +32,7 @@ class PlantasRequest extends FormRequest {
     public function messages()
     {
         return [
-            'required' => ':attribute é obrigatório.',
+            'required' => 'O campo :attribute é obrigatório.',
             'imagem.image' => 'O campo :attribute deve ser uma imagem válida.'
         ];
     }

@@ -11,7 +11,8 @@ use Validator;
 class PlantaController extends Controller {
 
 	public function __construct() {
-		$this->middleware('auth-middleware', ['only' => ['adiciona', 'exclui', 'editar']]);
+		$this->middleware('auth', 
+						 ['only' => ['adiciona', 'exclui', 'editar']]);
 	}
 
 	public function lista() {
