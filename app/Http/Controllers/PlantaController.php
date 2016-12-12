@@ -4,9 +4,9 @@ namespace projetoIrrigacao\Http\Controllers;
 
 use projetoIrrigacao\Planta;
 use projetoIrrigacao\Http\Requests\PlantasRequest;
+use projetoIrrigacao\Notifications\StatusPlanta;
 use Illuminate\Http\Request;
 use Auth;
-use Validator;
 
 class PlantaController extends Controller {
 
@@ -16,8 +16,9 @@ class PlantaController extends Controller {
 	}
 
 	public function lista() {
-		$plantas = (Auth::user() != null) ? Planta::all()->where('idUser', Auth::user()->id ) : [];
-		
+		$user = Auth::user();
+		$plantas = ($user != null) ? Planta::where('idUser', $user->id )->paginate(3) : array();
+
 		return view('planta.listagem')->with('plantas', $plantas);
 	}
 
@@ -68,7 +69,6 @@ class PlantaController extends Controller {
 		$planta->nome = $request->input('nome');
 		$planta->apelido = $request->input('apelido');
 		$planta->descricao = $request->input('descricao');
-		$planta->status = ($request->input('status') == 'Ativo') ? 1 : 0;
 		$planta->save();
 		return redirect('/planta/visualizar/' . $id);
 	}
@@ -81,9 +81,12 @@ class PlantaController extends Controller {
 
     public function alterar($id) {
     	$planta = Planta::find($id);
-    	$planta->status = ($planta->status == 1) ? 0 : 1;
+		$user = Auth::user();
+		$planta->status = ($planta->status == 1) ? 0 : 1;
     	$planta->save();
-    	return redirect()->action('PlantaController@lista'); 
+
+		$user->notify(new StatusPlanta($planta));
+		return redirect()->action('PlantaController@lista');
     }
 
 }

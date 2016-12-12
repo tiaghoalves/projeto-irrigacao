@@ -10,17 +10,17 @@
   <!-- Styles -->
   <link href="/components/locawebstyle/dist/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
   <link rel="icon" sizes="192x192" href="/components/locawebstyle/dist/images/ico-boilerplate.png">
-  <link rel="apple-touch-icon" href="/components/locawebstyle/dist/images/ico-boilerplate.png">
     <!-- Scripts -->
   <script>
-      window.Laravel = <?php echo json_encode([
+      window.Laravel = <?php 
+      echo json_encode([
           'csrfToken' => csrf_token(),
       ]); ?>
   </script>
+  @yield('header')
 </head>
 <body>
 <div class="ls-topbar ">
-
   <!-- Barra de Notificações -->
 <div class="ls-notification-topbar">
 
@@ -35,7 +35,7 @@
   <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
       @if(Auth::guest())
         <a href="#" class="ls-ico-user">
-          <span class="ls-name">Anonymous</span>
+          <span class="ls-name">Anônimo</span>
         </a>
   
         <nav class="ls-dropdown-nav ls-user-menu">
@@ -77,7 +77,7 @@
 
       <nav class="ls-menu">
         <ul>
-          <li><a href="/" class="ls-ico-dashboard" title="Dashboard">Dashboard</a></li>
+          <li><a href="/" class="ls-ico-dashboard" title="Dashboard">Home</a></li>
           <li><a href="{{ action('PlantaController@lista') }}" class="ls-ico-stats" title="Plantas">Plantas</a></li>
           <li>
             <a href="#" class="ls-ico-cog" title="Configurações">Configurações</a>
@@ -98,9 +98,8 @@
 
   </div>
 </main>
-
-    <!-- We recommended use jQuery 1.10 or up -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="/components/locawebstyle/dist/javascripts/locastyle.js"></script>
-  </body>
+<script src="/components/jquery/dist/jquery.min.js"></script>
+<script src="/components/locawebstyle/dist/javascripts/locastyle.js"></script>
+@yield('footer')
+</body>
 </html>

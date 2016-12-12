@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'projetoIrrigacao\Events\SomeEvent' => [
-            'projetoIrrigacao\Listeners\EventListener',
+        'projetoIrrigacao\Events\StatusChange' => [
+            'projetoIrrigacao\Listeners\SendStatusNotification',
         ],
     ];
 
